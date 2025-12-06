@@ -33,7 +33,7 @@ void move_iter(pole *A, pole *B) {
     A->number_of_disks--;
     B->disks[B->number_of_disks] = d;
     B->number_of_disks++;
-   // printf("Déplacement disque %d : %s -> %s\n", d, A->pole_name, B->pole_name);
+    printf("Déplacement disque %d : %s -> %s\n", d, A->pole_name, B->pole_name);
 }
 
 /* choix légal d'un mouvement entre X et Y (itératif) */
@@ -70,10 +70,10 @@ void hanoi_iterative(int n, pole *A, pole *B, pole *C) {
         }
 
         /* prints identiques (mais avec les helpers itératifs) */
-    //    display_iter(A);
-     //  display_iter(B);
-     //  display_iter(C);
-        //separator_iter();
+        display_iter(A);
+       display_iter(B);
+       display_iter(C);
+        separator_iter();
     }
 }
  double run_hanoi_iterative (int number_of_disks) {
@@ -88,9 +88,9 @@ void hanoi_iterative(int n, pole *A, pole *B, pole *C) {
 
     if (!Bit.disks || !Cit.disks) { perror("malloc"); free(base_iter); return -1; }
 
- //   display_iter(&Ait);
-  // display_iter(&Bit);
-  // display_iter(&Cit);
+    display_iter(&Ait);
+   display_iter(&Bit);
+   display_iter(&Cit);
 
     clock_t begin_it = clock();
     hanoi_iterative(number_of_disks, &Ait, &Bit, &Cit);

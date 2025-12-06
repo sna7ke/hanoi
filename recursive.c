@@ -25,9 +25,9 @@ void hanoi(int n , pole * A , pole *C , pole *B) {
     if(n != 0) {
         hanoi(n-1,A,B,C);
         move(A ,C);
- //       display(A);
-  //     display(B);
-  //     display(C);
+        display(A);
+       display(B);
+       display(C);
         hanoi(n-1 ,B,C,A);
     }
 }
@@ -44,9 +44,9 @@ double run_hanoi(int number_of_disks) {
     pole B = {malloc( number_of_disks * sizeof(int)),0 , "B"};
     pole C = {malloc( number_of_disks * sizeof(int)),0 , "C"};
    
- // display(&A);
- // display(&B);
- // display(&C);
+  display(&A);
+  display(&B);
+  display(&C);
 
    clock_t begin = clock();
    hanoi(number_of_disks, &A, &C, &B);
