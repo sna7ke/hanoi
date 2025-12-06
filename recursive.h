@@ -15,3 +15,5 @@ void display(pole * P);
 void move(pole * A ,pole * B);
 
 void hanoi(int n , pole * A , pole *C , pole *B);
+
+double run_hanoi(int number_of_disks);

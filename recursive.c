@@ -25,11 +25,36 @@ void hanoi(int n , pole * A , pole *C , pole *B) {
     if(n != 0) {
         hanoi(n-1,A,B,C);
         move(A ,C);
-        display(A);
-        display(B);
-        display(C);
+ //       display(A);
+  //     display(B);
+  //     display(C);
         hanoi(n-1 ,B,C,A);
     }
+}
+
+double run_hanoi(int number_of_disks) {
+
+    int disks [number_of_disks];
+    for (int i = 0; i<number_of_disks; i++){
+        disks[i] = number_of_disks - i;
+     //   printf("%d \n",disks[i]);
+    }
+
+    pole A = {disks, number_of_disks , "A"};
+    pole B = {malloc( number_of_disks * sizeof(int)),0 , "B"};
+    pole C = {malloc( number_of_disks * sizeof(int)),0 , "C"};
+   
+ // display(&A);
+ // display(&B);
+ // display(&C);
+
+   clock_t begin = clock();
+   hanoi(number_of_disks, &A, &C, &B);
+   clock_t end = clock();
+   double time_spent = (double)(end - begin)/CLOCKS_PER_SEC ;
+   time_spent *= 1000;
+   //printf("the time spent for %d disks is %f ms \n" , number_of_disks , time_spent);
+   return time_spent;
 }
 
 

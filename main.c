@@ -1,26 +1,19 @@
-
 #include "recursive.h"
-#define SIZE 20
+#include "iterative.h"
+#define SIZE 40
 
 int main(void){
-    int disks [SIZE];
-    for (int i = 0; i<SIZE ; i++){
-        disks[i] = SIZE - i;
-     //   printf("%d \n",disks[i]);
-    }
+    double time_recur = run_hanoi(SIZE);
+    double time_iter = run_hanoi_iterative(SIZE);
+    printf("\n it took %f ms for iterative algorithm and %f ms for recursive one \n",time_iter,time_recur);
 
-    pole A = {disks,SIZE , "A"};
-    pole B = {malloc(SIZE * sizeof(int)),0 , "B"};
-    pole C = {malloc(SIZE * sizeof(int)),0 , "C"};
-   
-   display(&A);
-   display(&B);
-   display(&C);
 
-   clock_t begin = clock();
-   hanoi(SIZE, &A, &C, &B);
-   clock_t end = clock();
-   double time_spent = (double)(end - begin)/CLOCKS_PER_SEC ;
-   time_spent *= 1000;
-   printf("the time spent for %d disks is %f ms \n" , SIZE , time_spent);
+
+    /* --------------------------
+       Résumé comparatif simple
+       -------------------------- */
+    //printf("==== Résumé ====\n");
+    //printf("Recursif : %.3f ms\n", time_rec_ms);
+   // printf("Iteratif : %.3f ms\n", time_it_ms);
+
 }
